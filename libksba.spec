@@ -1,14 +1,12 @@
 Summary:	KSBA library
 Summary(pl):	Biblioteka KSBA
 Name:		libksba
-Version:	0.4.6
+Version:	0.4.7
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnupg.org/gcrypt/alpha/aegypten/%{name}-%{version}.tar.gz
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	libtool
+Patch0:		%{name}-info.patch
 BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -44,9 +42,12 @@ Statyczna biblioteka KSBA.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
-%configure --enable-shared
+%configure \
+	--enable-shared
+
 %{__make}
 
 %install
