@@ -1,7 +1,7 @@
 Summary:	KSBA = rot13(digit_to_letter(x509)) to be pronounced as Kasbah
 Summary(es):	KSBA = rot13(digit_to_letter(x509))
-Summary(pt_BR):	KSBA = rot13(digit_to_letter(x509)) pronunciado como Kasbah
 Summary(pl):	KSBA = rot13(digit_to_letter(x509))
+Summary(pt_BR):	KSBA = rot13(digit_to_letter(x509)) pronunciado como Kasbah
 Name:		libksba
 Version:	0.4.7
 Release:	1
@@ -19,6 +19,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 KSBA is a library to make the tasks of working with X.509
 certificates, CMS data and related data more easy.
+
+%description -l pl
+KSBA jest bibliotek± u³atwiaj±c± korzystanie z certyfikatów X.509,
+danych CMS i podobnych danych.
 
 %description -l pt_BR
 KSBA é uma biblioteca para tratar certificados X.509, dados CMS e
@@ -42,14 +46,18 @@ Pliki nag³ówkowe do tworzenia programów u¿ywaj±cych KSBA.
 Bibliotecas de desenvolvimento para KSBA.
 
 %package static
-Summary:	Development files from KSBA - static lib
+Summary:	Static KSBA libraries
 Summary(es):	Archivos de desarrollo de KSBA - estatico
+Summary(pl):	Biblioteki statyczne KSBA
 Summary(pt_BR):	Arquivos de desenvolvimento da KSBA - biblioteca estática
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}
 
 %description static
-KSBA devel libraries - static.
+Static KSBA libraries.
+
+%description static -l pl
+Biblioteki statyczne KSBA.
 
 %description static -l pt_BR
 Bibliotecas de desenvolvimento para KSBA - estático.
