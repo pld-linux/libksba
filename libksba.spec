@@ -1,5 +1,7 @@
-Summary:	KSBA library
-Summary(pl):	Biblioteka KSBA
+Summary:	KSBA = rot13(digit_to_letter(x509)) to be pronounced as Kasbah
+Summary(es):	KSBA = rot13(digit_to_letter(x509))
+Summary(pt_BR):	KSBA = rot13(digit_to_letter(x509)) pronunciado como Kasbah
+Summary(pl):	KSBA = rot13(digit_to_letter(x509))
 Name:		libksba
 Version:	0.4.7
 Release:	1
@@ -7,18 +9,25 @@ License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnupg.org/gcrypt/alpha/aegypten/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool
 BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-KSBA library.
+KSBA is a library to make the tasks of working with X.509
+certificates, CMS data and related data more easy.
 
-%description -l pl
-Biblioteka KSBA.
+%description -l pt_BR
+KSBA é uma biblioteca para tratar certificados X.509, dados CMS e
+dados relacionados de forma fácil.
 
 %package devel
 Summary:	Header files to develop KSBA applications
+Summary(es):	Archivos de desarrollo de KSBA
 Summary(pl):	Pliki nag³ówkowe do tworzenia programów u¿ywaj±cych KSBA
+Summary(pt_BR):	Arquivos de desenvolvimento da KSBA
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
 
@@ -28,23 +37,31 @@ Header files to develop KSBA applications.
 %description devel -l pl
 Pliki nag³ówkowe do tworzenia programów u¿ywaj±cych KSBA.
 
+%description devel -l pt_BR
+Bibliotecas de desenvolvimento para KSBA.
+
 %package static
-Summary:	Static KSBA library
-Summary(pl):	Statyczna biblioteka KSBA
+Summary:	Development files from KSBA - static lib
+Summary(es):	Archivos de desarrollo de KSBA - estatico
+Summary(pt_BR):	Arquivos de desenvolvimento da KSBA - biblioteca estática
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}
 
 %description static
-Static KSBA library.
+KSBA devel libraries - static.
 
-%description static -l pl
-Statyczna biblioteka KSBA.
+%description static -l pt_BR
+Bibliotecas de desenvolvimento para KSBA - estático.
 
 %prep
 %setup -q
 %patch -p1
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__automake}
 %configure \
 	--enable-shared
 
