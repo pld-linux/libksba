@@ -13,7 +13,7 @@ Patch0:		%{name}-info.patch
 Patch1:		%{name}-link.patch
 Patch2:		%{name}-am18.patch
 BuildRequires:	autoconf >= 2.57
-BuildRequires:	automake >= 1.7.6
+BuildRequires:	automake >= 1:1.7.6
 BuildRequires:	libgpg-error-devel >= 0.7
 # for tests only
 BuildRequires:	libgcrypt-devel
