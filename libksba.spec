@@ -3,23 +3,23 @@ Summary(es):	KSBA = rot13(digit_to_letter(x509))
 Summary(pl):	KSBA = rot13(digit_to_letter(x509)), wymawiane "kasba"
 Summary(pt_BR):	KSBA = rot13(digit_to_letter(x509)) pronunciado como Kasbah
 Name:		libksba
-Version:	0.9.5
+Version:	0.9.6
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnupg.org/gcrypt/alpha/libksba/%{name}-%{version}.tar.gz
-# Source0-md5:	d43941ded9b099d6bd123e0d9281b1a4
+# Source0-md5:	9e4c8f5c138c02e5b1835fa9adc67071
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-link.patch
 Patch2:		%{name}-am18.patch
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1.7.6
-BuildRequires:	libgpg-error-devel >= 0.6
+BuildRequires:	libgpg-error-devel >= 0.7
 # for tests only
 BuildRequires:	libgcrypt-devel
 BuildRequires:	libtool
 BuildRequires:	texinfo
-Requires:	libgpg-error >= 0.6
+Requires:	libgpg-error >= 0.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -41,7 +41,7 @@ Summary(pl):	Pliki nag³ówkowe do tworzenia programów u¿ywaj±cych KSBA
 Summary(pt_BR):	Arquivos de desenvolvimento da KSBA
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libgpg-error-devel >= 0.6
+Requires:	libgpg-error-devel >= 0.7
 
 %description devel
 Header files to develop KSBA applications.
