@@ -15,6 +15,7 @@ Patch2:		%{name}-am18.patch
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1.7.6
 BuildRequires:	libgpg-error-devel >= 0.6
+BuildRequires:	libgcrypt-devel
 BuildRequires:	libtool
 BuildRequires:	texinfo
 Requires:	libgpg-error >= 0.6
