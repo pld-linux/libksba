@@ -1,7 +1,7 @@
 Summary:	KSBA library
 Summary(pl):	Biblioteka KSBA
 Name:		libksba
-Version:	0.4.5
+Version:	0.4.6
 Release:	1
 License:	LGPL
 Group:		Libraries
