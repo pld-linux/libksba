@@ -1,11 +1,11 @@
 Summary:	KSBA library
+Summary(pl):	Biblioteka KSBA
 Name:		libksba
 Version:	0.4.5
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnupg.org/gcrypt/alpha/aegypten/%{name}-%{version}.tar.gz
-URL:		http://www.gnu.org/gnulist/production/libksba.html
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
@@ -15,21 +15,32 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 KSBA library.
 
+%description -l pl
+Biblioteka KSBA.
+
 %package devel
 Summary:	Header files to develop KSBA applications
+Summary(pl):	Pliki nag³ówkowe do tworzenia programów u¿ywaj±cych KSBA
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
 
 %description devel
 Header files to develop KSBA applications.
 
+%description devel -l pl
+Pliki nag³ówkowe do tworzenia programów u¿ywaj±cych KSBA.
+
 %package static
 Summary:	Static KSBA library
+Summary(pl):	Statyczna biblioteka KSBA
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}
 
 %description static
 Static KSBA library.
+
+%description static -l pl
+Statyczna biblioteka KSBA.
 
 %prep
 %setup -q
