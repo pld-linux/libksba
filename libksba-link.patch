@@ -1,0 +1,10 @@
+--- libksba-0.9.0/src/Makefile.am.orig	2003-11-12 13:14:43.000000000 +0100
++++ libksba-0.9.0/src/Makefile.am	2003-11-17 19:45:47.289805552 +0100
+@@ -35,6 +35,7 @@
+ 
+ libksba_la_LDFLAGS = -version-info \
+       @LIBKSBA_LT_CURRENT@:@LIBKSBA_LT_REVISION@:@LIBKSBA_LT_AGE@
++libksba_la_LIBADD = @GPG_ERROR_LIBS@
+ libksba_la_INCLUDES = -I$(top_srcdir)/lib 
+ 
+ libksba_la_SOURCES = \
