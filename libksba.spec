@@ -8,6 +8,7 @@ Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnupg.org/gcrypt/alpha/aegypten/%{name}-%{version}.tar.gz
+# Source0-md5:	65ab8dad1f7fb379f72e1d096657a3d7
 Patch0:		%{name}-info.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
