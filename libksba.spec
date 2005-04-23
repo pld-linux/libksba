@@ -3,20 +3,17 @@ Summary(es):	KSBA = rot13(digit_to_letter(x509))
 Summary(pl):	KSBA = rot13(digit_to_letter(x509)), wymawiane "kasba"
 Summary(pt_BR):	KSBA = rot13(digit_to_letter(x509)) pronunciado como Kasbah
 Name:		libksba
-Version:	0.9.10
+Version:	0.9.11
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnupg.org/gcrypt/alpha/libksba/%{name}-%{version}.tar.gz
-# Source0-md5:	1504bac7386e027499c6db85d26fa7e4
+# Source0-md5:	f21912398467e0c93ae1abeb8f6b3a3d
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-link.patch
-Patch2:		%{name}-am18.patch
 BuildRequires:	autoconf >= 2.57
-BuildRequires:	automake >= 1:1.7.6
+BuildRequires:	automake >= 1:1.9.3
 BuildRequires:	libgpg-error-devel >= 0.7
-# for tests only
-BuildRequires:	libgcrypt-devel
 BuildRequires:	libtool
 BuildRequires:	texinfo
 Requires:	libgpg-error >= 0.7
@@ -73,7 +70,6 @@ Bibliotecas de desenvolvimento para KSBA - estático.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 %{__libtoolize}
@@ -114,7 +110,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
-%{_infodir}/*info*
+%{_infodir}/*.info*
 %{_includedir}/*.h
 %{_aclocaldir}/*
 
