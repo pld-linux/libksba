@@ -3,12 +3,12 @@ Summary(es):	KSBA = rot13(digit_to_letter(x509))
 Summary(pl):	KSBA = rot13(digit_to_letter(x509)), wymawiane "kasba"
 Summary(pt_BR):	KSBA = rot13(digit_to_letter(x509)) pronunciado como Kasbah
 Name:		libksba
-Version:	0.9.11
+Version:	0.9.12
 Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	ftp://ftp.gnupg.org/gcrypt/alpha/libksba/%{name}-%{version}.tar.gz
-# Source0-md5:	f21912398467e0c93ae1abeb8f6b3a3d
+Source0:	ftp://ftp.gnupg.org/gcrypt/alpha/libksba/%{name}-%{version}.tar.bz2
+# Source0-md5:	4d40a09134c5a0d2dcc6416f9abdcc98
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-link.patch
 BuildRequires:	autoconf >= 2.57
@@ -73,11 +73,10 @@ Bibliotecas de desenvolvimento para KSBA - estático.
 
 %build
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I gl/m4
 %{__autoconf}
 %{__automake}
-%configure \
-	--enable-shared
+%configure
 
 %{__make}
 
