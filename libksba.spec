@@ -11,6 +11,7 @@ Source0:	ftp://ftp.gnupg.org/gcrypt/alpha/libksba/%{name}-%{version}.tar.bz2
 # Source0-md5:	4d40a09134c5a0d2dcc6416f9abdcc98
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-link.patch
+URL:		http://www.gnupg.org/related_software/libksba/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake >= 1:1.9.3
 BuildRequires:	libgpg-error-devel >= 0.7
