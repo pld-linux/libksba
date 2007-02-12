@@ -1,7 +1,7 @@
 Summary:	KSBA = rot13(digit_to_letter(x509)) to be pronounced as Kasbah
-Summary(es):	KSBA = rot13(digit_to_letter(x509))
-Summary(pl):	KSBA = rot13(digit_to_letter(x509)), wymawiane "kasba"
-Summary(pt_BR):	KSBA = rot13(digit_to_letter(x509)) pronunciado como Kasbah
+Summary(es.UTF-8):   KSBA = rot13(digit_to_letter(x509))
+Summary(pl.UTF-8):   KSBA = rot13(digit_to_letter(x509)), wymawiane "kasba"
+Summary(pt_BR.UTF-8):   KSBA = rot13(digit_to_letter(x509)) pronunciado como Kasbah
 Name:		libksba
 Version:	1.0.1
 Release:	1
@@ -24,19 +24,19 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 KSBA is a library to make the tasks of working with X.509
 certificates, CMS data and related data more easy.
 
-%description -l pl
-KSBA jest bibliotek± u≥atwiaj±c± korzystanie z certyfikatÛw X.509,
+%description -l pl.UTF-8
+KSBA jest bibliotekƒÖ u≈ÇatwiajƒÖcƒÖ korzystanie z certyfikat√≥w X.509,
 danych CMS i podobnych danych.
 
-%description -l pt_BR
-KSBA È uma biblioteca para tratar certificados X.509, dados CMS e
-dados relacionados de forma f·cil.
+%description -l pt_BR.UTF-8
+KSBA √© uma biblioteca para tratar certificados X.509, dados CMS e
+dados relacionados de forma f√°cil.
 
 %package devel
 Summary:	Header files to develop KSBA applications
-Summary(es):	Archivos de desarrollo de KSBA
-Summary(pl):	Pliki nag≥Ûwkowe do tworzenia programÛw uøywaj±cych KSBA
-Summary(pt_BR):	Arquivos de desenvolvimento da KSBA
+Summary(es.UTF-8):   Archivos de desarrollo de KSBA
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe do tworzenia program√≥w u≈ºywajƒÖcych KSBA
+Summary(pt_BR.UTF-8):   Arquivos de desenvolvimento da KSBA
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libgpg-error-devel >= 1.2
@@ -44,28 +44,28 @@ Requires:	libgpg-error-devel >= 1.2
 %description devel
 Header files to develop KSBA applications.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe do tworzenia programÛw uøywaj±cych KSBA.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe do tworzenia program√≥w u≈ºywajƒÖcych KSBA.
 
-%description devel -l pt_BR
+%description devel -l pt_BR.UTF-8
 Bibliotecas de desenvolvimento para KSBA.
 
 %package static
 Summary:	Static KSBA libraries
-Summary(es):	Archivos de desarrollo de KSBA - estatico
-Summary(pl):	Biblioteki statyczne KSBA
-Summary(pt_BR):	Arquivos de desenvolvimento da KSBA - biblioteca est·tica
+Summary(es.UTF-8):   Archivos de desarrollo de KSBA - estatico
+Summary(pl.UTF-8):   Biblioteki statyczne KSBA
+Summary(pt_BR.UTF-8):   Arquivos de desenvolvimento da KSBA - biblioteca est√°tica
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static KSBA libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteki statyczne KSBA.
 
-%description static -l pt_BR
-Bibliotecas de desenvolvimento para KSBA - est·tico.
+%description static -l pt_BR.UTF-8
+Bibliotecas de desenvolvimento para KSBA - est√°tico.
 
 %prep
 %setup -q
