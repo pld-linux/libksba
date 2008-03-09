@@ -3,12 +3,12 @@ Summary(es.UTF-8):	KSBA = rot13(digit_to_letter(x509))
 Summary(pl.UTF-8):	KSBA = rot13(digit_to_letter(x509)), wymawiane "kasba"
 Summary(pt_BR.UTF-8):	KSBA = rot13(digit_to_letter(x509)) pronunciado como Kasbah
 Name:		libksba
-Version:	1.0.2
-Release:	2
+Version:	1.0.3
+Release:	1
 License:	GPL v3+
 Group:		Libraries
 Source0:	ftp://ftp.gnupg.org/gcrypt/libksba/%{name}-%{version}.tar.bz2
-# Source0-md5:	3cccb3ef697e1e69eeceeea0715ff220
+# Source0-md5:	91682491186d4ed43fff351aab2f5aad
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-link.patch
 URL:		http://www.gnupg.org/related_software/libksba/
@@ -97,16 +97,17 @@ rm -rf $RPM_BUILD_ROOT
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%post devel	-p	/sbin/postshell
+%post	devel -p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
-%postun devel	-p	/sbin/postshell
+%postun	devel -p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README THANKS TODO
 %attr(755,root,root) %{_libdir}/libksba.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libksba.so.8
 
 %files devel
 %defattr(644,root,root,755)
