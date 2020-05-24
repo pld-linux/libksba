@@ -3,14 +3,14 @@ Summary(es.UTF-8):	KSBA = rot13(digit_to_letter(x509))
 Summary(pl.UTF-8):	KSBA = rot13(digit_to_letter(x509)), wymawiane "kasba"
 Summary(pt_BR.UTF-8):	KSBA = rot13(digit_to_letter(x509)) pronunciado como Kasbah
 Name:		libksba
-Version:	1.3.5
+Version:	1.4.0
 Release:	1
 License:	LGPL v3+ or GPL v2+ (libraries), GPL v3+ (the rest)
 Group:		Libraries
 Source0:	ftp://ftp.gnupg.org/gcrypt/libksba/%{name}-%{version}.tar.bz2
-# Source0-md5:	8302a3e263a7c630aa7dea7d341f07a2
+# Source0-md5:	4026f93b5589a00a4b59dbca3057cbb2
 Patch0:		%{name}-info.patch
-URL:		http://www.gnupg.org/related_software/libksba/
+URL:		https://www.gnupg.org/related_software/libksba/
 BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake >= 1:1.14
 BuildRequires:	libgpg-error-devel >= 1.8
@@ -90,6 +90,9 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	m4datadir=%{_aclocaldir}
 
+# obsoleted by pkgconfig
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libksba.la
+
 rm -f $RPM_BUILD_ROOT%{_infodir}/dir
 
 %clean
@@ -115,10 +118,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/ksba-config
 %attr(755,root,root) %{_libdir}/libksba.so
-%{_libdir}/libksba.la
-%{_infodir}/ksba.info*
 %{_includedir}/ksba.h
+%{_pkgconfigdir}/ksba.pc
 %{_aclocaldir}/ksba.m4
+%{_infodir}/ksba.info*
 
 %files static
 %defattr(644,root,root,755)
