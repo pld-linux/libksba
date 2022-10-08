@@ -4,7 +4,7 @@ Summary(pl.UTF-8):	KSBA = rot13(digit_to_letter(x509)), wymawiane "kasba"
 Summary(pt_BR.UTF-8):	KSBA = rot13(digit_to_letter(x509)) pronunciado como Kasbah
 Name:		libksba
 Version:	1.6.2
-Release:	1
+Release:	2
 License:	LGPL v3+ or GPL v2+ (libraries), GPL v3+ (the rest)
 Group:		Libraries
 Source0:	ftp://ftp.gnupg.org/gcrypt/libksba/%{name}-%{version}.tar.bz2
@@ -14,10 +14,10 @@ URL:		https://www.gnupg.org/related_software/libksba/
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	autoconf-archive
 BuildRequires:	automake >= 1:1.14
-BuildRequires:	libgpg-error-devel >= 1.8
+BuildRequires:	libgpg-error-devel >= 1.46
 BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	texinfo
-Requires:	libgpg-error >= 1.8
+Requires:	libgpg-error >= 1.46
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -40,7 +40,7 @@ Summary(pt_BR.UTF-8):	Arquivos de desenvolvimento da KSBA
 License:	LGPL v3+ or GPL v2+ (libraries), GPL v3+ (manual)
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libgpg-error-devel >= 1.8
+Requires:	libgpg-error-devel >= 1.46
 
 %description devel
 Header files to develop KSBA applications.
@@ -117,7 +117,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/ksba-config
 %attr(755,root,root) %{_libdir}/libksba.so
 %{_includedir}/ksba.h
 %{_pkgconfigdir}/ksba.pc
