@@ -4,7 +4,7 @@ Summary(pl.UTF-8):	KSBA = rot13(digit_to_letter(x509)), wymawiane "kasba"
 Summary(pt_BR.UTF-8):	KSBA = rot13(digit_to_letter(x509)) pronunciado como Kasbah
 Name:		libksba
 Version:	1.6.2
-Release:	2
+Release:	3
 License:	LGPL v3+ or GPL v2+ (libraries), GPL v3+ (the rest)
 Group:		Libraries
 Source0:	ftp://ftp.gnupg.org/gcrypt/libksba/%{name}-%{version}.tar.bz2
