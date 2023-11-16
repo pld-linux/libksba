@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	static_libs	# static library
+
 Summary:	KSBA = rot13(digit_to_letter(x509)) to be pronounced as Kasbah
 Summary(es.UTF-8):	KSBA = rot13(digit_to_letter(x509))
 Summary(pl.UTF-8):	KSBA = rot13(digit_to_letter(x509)), wymawiane "kasba"
@@ -16,6 +20,7 @@ BuildRequires:	autoconf-archive
 BuildRequires:	automake >= 1:1.14
 BuildRequires:	libgpg-error-devel >= 1.46
 BuildRequires:	libtool >= 2:2.2.6
+BuildRequires:	rpmbuild(macros) >= 1.527
 BuildRequires:	texinfo
 Requires:	libgpg-error >= 1.46
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -80,7 +85,7 @@ Bibliotecas de desenvolvimento para KSBA - estático.
 %{__autoheader}
 %{__automake}
 %configure \
-	--enable-static
+	%{__enable_disable static_libs static}
 
 %{__make}
 
@@ -123,6 +128,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_aclocaldir}/ksba.m4
 %{_infodir}/ksba.info*
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libksba.a
+%endif
