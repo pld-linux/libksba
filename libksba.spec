@@ -11,7 +11,7 @@ Version:	1.6.7
 Release:	1
 License:	LGPL v3+ or GPL v2+ (libraries), GPL v3+ (the rest)
 Group:		Libraries
-Source0:	ftp://ftp.gnupg.org/gcrypt/libksba/%{name}-%{version}.tar.bz2
+Source0:	https://www.gnupg.org/ftp/gcrypt/libksba/%{name}-%{version}.tar.bz2
 # Source0-md5:	7e736de467b67c7ea88de746c31ea12f
 Patch0:		%{name}-info.patch
 URL:		https://www.gnupg.org/related_software/libksba/
