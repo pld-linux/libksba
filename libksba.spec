@@ -8,12 +8,16 @@ Summary(pl.UTF-8):	KSBA = rot13(digit_to_letter(x509)), wymawiane "kasba"
 Summary(pt_BR.UTF-8):	KSBA = rot13(digit_to_letter(x509)) pronunciado como Kasbah
 Name:		libksba
 Version:	1.8.1
-Release:	1
+Release:	2
 License:	LGPL v3+ or GPL v2+ (libraries), GPL v3+ (the rest)
 Group:		Libraries
 Source0:	https://www.gnupg.org/ftp/gcrypt/libksba/%{name}-%{version}.tar.bz2
 # Source0-md5:	43db411cfce028d1300113a4c3b30c54
 Patch0:		%{name}-info.patch
+# https://github.com/gpg/libksba/commit/7946bf2a12eb87027e867cec667caaff6ecb701d
+Patch1:		%{name}-dn-ucs-oob.patch
+# https://github.com/gpg/libksba/commit/c5dc198f571c26b70a6443ac9a2809d4eea16df2
+Patch2:		%{name}-ocsp-double-free.patch
 URL:		https://www.gnupg.org/related_software/libksba/
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	autoconf-archive
@@ -44,7 +48,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe do tworzenia programów używających KSBA
 Summary(pt_BR.UTF-8):	Arquivos de desenvolvimento da KSBA
 License:	LGPL v3+ or GPL v2+ (libraries), GPL v3+ (manual)
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
+Requires:	%{name}%{?_isa} = %{version}-%{release}
 Requires:	libgpg-error-devel >= 1.46
 
 %description devel
@@ -63,7 +67,7 @@ Summary(pl.UTF-8):	Biblioteki statyczne KSBA
 Summary(pt_BR.UTF-8):	Arquivos de desenvolvimento da KSBA - biblioteca estática
 License:	LGPL v3+ or GPL v2+
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}-%{release}
+Requires:	%{name}-devel%{?_isa} = %{version}-%{release}
 
 %description static
 Static KSBA libraries.
@@ -77,6 +81,8 @@ Bibliotecas de desenvolvimento para KSBA - estático.
 %prep
 %setup -q
 %patch -P0 -p1
+%patch -P1 -p1
+%patch -P2 -p1
 
 %build
 %{__libtoolize}

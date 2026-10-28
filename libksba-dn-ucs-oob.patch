@@ -1,0 +1,85 @@
+Out-of-bounds read on truncated UCS-2/UCS-4 DN attribute values (GnuPG T8476).
+https://github.com/gpg/libksba/commit/7946bf2a12eb87027e867cec667caaff6ecb701d
+https://github.com/gpg/libksba/commit/4561696808f864fd396d6401d8779d31b0bcf6c1
+
+From 7946bf2a12eb87027e867cec667caaff6ecb701d Mon Sep 17 00:00:00 2001
+From: NIIBE Yutaka <gniibe@fsij.org>
+Date: Tue, 6 Oct 2026 10:46:20 +0900
+Subject: [PATCH] Fix attribute to string OOB for UCS2 and UCS4.
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+* src/dn.c (append_ucs4_value): Detect the invalid length correctly.
+(append_ucs2_value): Likewise.
+
+--
+
+GnuPG-bug-id: 8476
+Reported-by: Antti Levomäki
+Signed-off-by: NIIBE Yutaka <gniibe@fsij.org>
+---
+ src/dn.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/dn.c b/src/dn.c
+index d40c1bb..b7e5811 100644
+--- a/src/dn.c
++++ b/src/dn.c
+@@ -306,7 +306,7 @@ append_ucs4_value (const unsigned char *value, size_t length,
+         append_quoted (sb, value, s-value, 3);
+       if (n>=length)
+         return; /* ready */
+-      if (n < 4)
++      if (length - n < 4)
+         { /* This is an invalid encoding - better stop after adding
+              one impossible characater */
+           put_stringbuf_mem (sb, "\xff", 1);
+@@ -400,7 +400,7 @@ append_ucs2_value (const unsigned char *value, size_t length,
+         append_quoted (sb, value, s-value, 1);
+       if (n>=length)
+         return; /* ready */
+-      if (n < 2)
++      if (length - n < 2)
+         { /* This is an invalid encoding - better stop after adding
+              one impossible characater */
+           put_stringbuf_mem (sb, "\xff", 1);
+From 4561696808f864fd396d6401d8779d31b0bcf6c1 Mon Sep 17 00:00:00 2001
+From: NIIBE Yutaka <gniibe@fsij.org>
+Date: Tue, 6 Oct 2026 10:50:06 +0900
+Subject: [PATCH] Fix attribute to string for UCS4 and UCS2.
+
+* src/dn.c (append_ucs4_value): Use the value[3].
+(append_ucs2_value): Use the value[1].
+
+--
+
+GnuPG-bug-id: 8476
+Reported-by: truong nguyen tri
+Signed-off-by: NIIBE Yutaka <gniibe@fsij.org>
+---
+ src/dn.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/dn.c b/src/dn.c
+index b7e5811..6784912 100644
+--- a/src/dn.c
++++ b/src/dn.c
+@@ -285,7 +285,7 @@ append_ucs4_value (const unsigned char *value, size_t length,
+       && (value[3] == ' ' || value[3] == '#'))
+     {
+       tmp[0] = '\\';
+-      tmp[1] = *value;
++      tmp[1] = value[3];
+       put_stringbuf_mem (sb, tmp, 2);
+       value += 4;
+       length -= 4;
+@@ -380,7 +380,7 @@ append_ucs2_value (const unsigned char *value, size_t length,
+   if (length>1 && !value[0] && (value[1] == ' ' || value[1] == '#'))
+     {
+       tmp[0] = '\\';
+-      tmp[1] = *value;
++      tmp[1] = value[1];
+       put_stringbuf_mem (sb, tmp, 2);
+       value += 2;
+       length -= 2;
